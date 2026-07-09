@@ -23,3 +23,12 @@ with open(output_file, "w", encoding="utf-8") as file:
     for xi, yi in zip(x, y):
         file.write(f"{xi:.6f}    {yi:.6f}\n")
 print(f"✅ Результаты сохранены в файл: {output_file}")
+
+plt.figure(figsize=(12, 6))
+plt.plot(x, y, linewidth=1, color='blue')
+plt.title('График функции')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.grid(True)
+plt.xlim(x_min, x_max)
+plt.show()
