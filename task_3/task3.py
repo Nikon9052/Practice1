@@ -20,3 +20,14 @@ def load_data(file_path):
     except Exception as e:
         print(f"Ошибка при чтении файла: {e}")
         exit(1)
+
+def plot_graph(x_data, y_data, args):
+    fig, ax = plt.subplots(figsize=(args.width, args.height))
+    ax.plot(x_data, y_data, label="f(x) = A - x*sin(sqrt(|x|))")
+    ax.set_title("График функции из Задания 1")
+    ax.set_xlabel("X")
+    ax.set_ylabel("Y")
+    ax.grid(True)
+    ax.legend()
+    plt.tight_layout()
+    plt.show()
