@@ -30,4 +30,15 @@ def plot_graph(x_data, y_data, args):
     ax.grid(True)
     ax.legend()
     plt.tight_layout()
-    plt.show()
+    plt.show()        
+
+def main():
+    parser = argparse.ArgumentParser(description="Построение графика y=f(x) из текстового файла.")
+    parser.add_argument("file", help="Путь к файлу с данными (2 столбца: x y)")
+    parser.add_argument("--width", type=float, default=8.0, help="Ширина окна графика в дюймах (по умолчанию 8.0)")
+    parser.add_argument("--height", type=float, default=6.0, help="Высота окна графика в дюймах (по умолчанию 6.0)")
+    args = parser.parse_args()
+    x_data, y_data = load_data(args.file)
+    plot_graph(x_data, y_data, args)
+if __name__ == "__main__":
+    main()
