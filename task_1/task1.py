@@ -7,11 +7,16 @@ A = 418.9829
 x_min = -500
 x_max = 500
 num_points = 2000
-output_dir = r"C:\Study\Practice\task_1\results"
-output_file = os.path.join(output_dir, "result.txt")
 
-os.makedirs(output_dir, exist_ok=True)
-print(f"Папка '{output_dir}' создана!")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+results_dir = os.path.join(script_dir, "results")
+
+if not os.path.exists(results_dir):
+    os.makedirs(results_dir)
+    print(f"Создана папка: {results_dir}")
+else:
+    print(f"Папка уже существует: {results_dir}")
+output_file = os.path.join(results_dir, "result.txt")
 
 x = np.linspace(x_min, x_max, num_points)
 y = A - x * np.sin(np.sqrt(np.abs(x)))
